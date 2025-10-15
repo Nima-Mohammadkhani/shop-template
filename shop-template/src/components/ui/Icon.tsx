@@ -1,9 +1,8 @@
 "use client";
-import * as Icons from "lucide-react";
+
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { IconProps } from "@/types/ui";
-
-type LucideIconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 
 const sizeMap: Record<string, number> = {
   sm: 16,
@@ -14,16 +13,13 @@ const sizeMap: Record<string, number> = {
 const Icon: React.FC<IconProps> = ({
   name,
   size = "md",
-  color = "currentColor",
   label,
   onClick,
   className = "",
   hoverEffect = false,
 }) => {
-  const LucideIcon = Icons[name] as LucideIconComponent;
-  if (!LucideIcon) return null;
-
   const finalSize = typeof size === "number" ? size : sizeMap[size];
+  const iconSrc = `/icon/${name}.svg`;
 
   return (
     <span
@@ -37,7 +33,13 @@ const Icon: React.FC<IconProps> = ({
         className
       )}
     >
-      <LucideIcon width={finalSize} height={finalSize} color={color} />
+      <Image
+        src={iconSrc}
+        alt={label || name}
+        width={finalSize}
+        height={finalSize}
+        unoptimized
+      />
       {label && <span className="ml-2 text-sm text-gray-700">{label}</span>}
     </span>
   );
