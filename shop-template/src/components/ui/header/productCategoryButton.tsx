@@ -1,17 +1,22 @@
 "use client";
-import { useState } from "react";
-import Icon from "../Icon";
+
 import Button from "../Button";
 
-const ProductCategoryButton = () => {
-  const [categoryDetails, setCategoryDetails] = useState<boolean>(false);
+type ProductCategoryButtonProps = {
+  onClick?: () => void;
+  className?: string;
+};
 
+const ProductCategoryButton = ({
+  onClick,
+  className,
+}: ProductCategoryButtonProps) => {
   return (
     <Button
       title="دسته بندی کالا ها"
       iconRight="justify"
-      onClick={() => setCategoryDetails(true)}
-      className="font-medium text-primary"
+      onClick={onClick}
+      className={`font-medium text-primary ${className ?? ""}`}
       iconColorRight="primary"
     />
   );

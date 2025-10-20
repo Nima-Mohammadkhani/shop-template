@@ -1,26 +1,42 @@
-import Icon from "../Icon";
+"use client";
 import ProductCategoryButton from "./productCategoryButton";
+import Category from "./category";
+import CategoryDetails from "./categoryDetails";
+import HeaderItems from "./headerItems";
+import { useState } from "react";
 
 const Header = () => {
-  const headerItems = [
-    { id: 1, name: "شگفت انگیز ها", link: "/", icon: "stars-light-sparkle-1" },
-    { id: 2, name: "ترند ترین ها", link: "/", icon: "star" },
-    { id: 3, name: "پرفروش ترین ها", link: "/", icon: "cup" },
-    { id: 4, name: "محبوب ترین ها", link: "/", icon: "Heart" },
-    { id: 5, name: "سوالات شما", link: "/" },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
+    undefined
+  );
+
   return (
-    <section className="flex justify-center items-center gap-8 bg-white w-full sticky top-0 z-50">
-      <ProductCategoryButton />
-      <div className="h-6 w-px bg-neutral-500" />
-      <div className="flex gap-8 w-full max-w-7xl py-4">
-        {headerItems.map((item) => (
-          <div key={item.id} className="flex items-center gap-2">
-            {item.icon && <Icon name={item.icon} />}
-            <h3>{item.name}</h3>
-          </div>
-        ))}
+    <section className="flex flex-col w-full bg-white sticky top-0 z-50">
+      <div className="flex justify-center items-center gap-8 w-full">
+        <ProductCategoryButton
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={isOpen ? "text-primary" : ""}
+        />
+        <div className="h-6 w-px bg-neutral-200" />
+        <HeaderItems />
       </div>
+
+      {isOpen && (
+        <div className="w-full border-t border-neutral-200">
+          <div className="mx-auto max-w-7xl py-6 flex gap-6">
+            <div className="w-64 shrink-0">
+              <Category
+                onSelect={(name) => setSelectedCategory(name)}
+                selectedCategory={selectedCategory}
+              />
+            </div>
+            <div className="flex-1">
+              <CategoryDetails category={selectedCategory} />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
