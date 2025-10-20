@@ -1,4 +1,3 @@
-import * as Icons from "lucide-react";
 import React from "react";
 export interface ButtonProps {
   title?: string;
@@ -10,14 +9,16 @@ export interface ButtonProps {
   textClassName?: string;
   disabled?: boolean;
   loading?: boolean;
-  iconLeft?: React.ReactNode | keyof typeof Icons;
-  iconRight?: React.ReactNode | keyof typeof Icons;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconColorLeft?: string;
+  iconColorRight?: string;
   fullWidth?: boolean;
   type?: "button" | "submit" | "reset";
 }
 
 export interface IconProps {
-  name: keyof typeof Icons;
+  name: string;
   size?: "sm" | "md" | "lg" | number;
   color?: string;
   label?: string;
@@ -36,4 +37,15 @@ export interface InputProps
   secureToggle?: boolean;
   containerClassName?: string;
   inputClassName?: string;
+}
+
+export interface ISlide {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  ctaText: string;
+  ctaLink: string;
+  category: string;
 }

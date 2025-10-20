@@ -17,6 +17,8 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   iconLeft,
   iconRight,
+  iconColorLeft,
+  iconColorRight,
   fullWidth = false,
   type = "button",
 }) => {
@@ -56,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
   const renderIconLeft = () => {
     if (!iconLeft) return null;
     return typeof iconLeft === "string" ? (
-      <Icon name={iconLeft as any} />
+      <Icon name={iconLeft as any} color={iconColorLeft} />
     ) : (
       iconLeft
     );
@@ -65,7 +67,7 @@ const Button: React.FC<ButtonProps> = ({
   const renderIconRight = () => {
     if (!iconRight) return null;
     return typeof iconRight === "string" ? (
-      <Icon name={iconRight as any} />
+      <Icon name={iconRight as any} color={iconColorRight} />
     ) : (
       iconRight
     );
@@ -77,9 +79,9 @@ const Button: React.FC<ButtonProps> = ({
         <Loader2 className="h-5 w-5 animate-spin" />
       ) : (
         <>
-          {renderIconLeft()}
-          {title && <span className={textClasses}>{title}</span>}
           {renderIconRight()}
+          {title && <span className={textClasses}>{title}</span>}
+          {renderIconLeft()}
         </>
       )}
     </>

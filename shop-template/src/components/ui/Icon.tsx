@@ -13,6 +13,7 @@ const sizeMap: Record<string, number> = {
 const Icon: React.FC<IconProps> = ({
   name,
   size = "md",
+  color,
   label,
   onClick,
   className = "",
@@ -32,14 +33,35 @@ const Icon: React.FC<IconProps> = ({
         hoverEffect && "hover:opacity-75 transition-opacity",
         className
       )}
-    >
-      <Image
-        src={iconSrc}
-        alt={label || name}
-        width={finalSize}
-        height={finalSize}
-        unoptimized
-      />
+   >
+      {color ? (
+        <span
+          aria-hidden
+          className={color.startsWith('#') || color.startsWith('rgb') || color.startsWith('var(') ? '' : `text-${color}`}
+          style={{
+            width: finalSize,
+            height: finalSize,
+            backgroundColor: color.startsWith('#') || color.startsWith('rgb') || color.startsWith('var(') ? color : 'currentColor',
+            WebkitMaskImage: `url(${iconSrc})`,
+            maskImage: `url(${iconSrc})`,
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+            WebkitMaskSize: "contain",
+            maskSize: "contain",
+            display: "inline-block",
+          }}
+        />
+      ) : (
+        <Image
+          src={iconSrc}
+          alt={label || name}
+          width={finalSize}
+          height={finalSize}
+          unoptimized
+        />
+      )}
       {label && <span className="ml-2 text-sm text-gray-700">{label}</span>}
     </span>
   );
