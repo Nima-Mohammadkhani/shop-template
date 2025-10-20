@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #DC2655;
+  --color-primary-50: #FDF2F6;
+  --color-primary-100: #FCE7EF;
+  --color-primary-200: #FBCFE0;
+  --color-primary-300: #FAA7C5;
+  --color-primary-400: #F5719E;
+  --color-primary-500: #DC2655;
+  --color-primary-600: #BF173E;
+  --color-primary-700: #9E1634;
+  --color-primary-800: #84172F;
+  --color-primary-900: #510616;
+  --color-primary-950: #292C2D;
+
+  --color-: #3E4344;
+  --color-neutral-50: #F8F9F9;
+  --color-neutral-100: #F0F1F1;
+  --color-neutral-200: #E1E2E3;
+  --color-neutral-300: #D1D4D4;
+  --color-neutral-400: #C2C5C6;
+  --color-neutral-500: #A4A9AA;
+  --color-neutral-600: #858C8D;
+  --color-neutral-700: #676F71;
+  --color-neutral-800: #52595A;
+  --color-neutral-900: #3E4344;
+  --color-neutral-950: #292C2D;
+  --color-neutral-1000: #151617;
+
+  --color-success: #00A478;
+  --color-success-300: #00BA88;
+  --color-success-500: #00A478;
+  --color-success-700: #008364;
+
+  --color-warning: #F3A62C;
+  --color-warning-300: #F4B740;
+  --color-warning-500: #F3A62C;
+  --color-warning-700: #EC8514;
+
+  --color-error: #ED2E2E;
+  --color-error-300: #F87171;
+  --color-error-500: #ED2E2E;
+  --color-error-700: #DC2626;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Medium.woff") format("woff");
+}
+
+html {
+  font-family: Vazir;
+}
