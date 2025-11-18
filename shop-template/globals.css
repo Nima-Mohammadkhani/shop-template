@@ -51,4 +51,36 @@
 
 html {
   font-family: Vazir;
+  scroll-behavior: smooth;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+@media (max-width: 1024px) {
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }

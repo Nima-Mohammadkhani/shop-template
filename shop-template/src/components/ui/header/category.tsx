@@ -29,7 +29,7 @@ const Category = ({ selectedCategory, onSelect }: CategoryProps) => {
   ];
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-2">
       {categoryItem.map((item) => (
         <Button
           key={item.id}
@@ -39,7 +39,7 @@ const Category = ({ selectedCategory, onSelect }: CategoryProps) => {
             setInternalSelected(item.name);
             onSelect?.(item.name);
           }}
-          className="flex justify-start"
+          className="flex justify-start text-sm sm:text-base"
           textClassName={item.name === effectiveSelected ? "text-primary" : ""}
           iconColorRight={item.name === effectiveSelected ? "primary" : ""}
         />

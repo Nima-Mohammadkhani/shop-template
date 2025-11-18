@@ -50,15 +50,15 @@ const detailsByCategory: Record<string, { title: string; links: string[] }> = {
 const CategoryDetails = ({ category }: CategoryDetailsProps) => {
   const data = category ? detailsByCategory[category] : undefined;
   return (
-    <section className="grid grid-cols-3 gap-6 w-full">
-      <div className="col-span-2 flex flex-col gap-4">
+    <section className="w-full">
+      <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <h4 className="font-bold text-primary">
             {data ? data.title : "دسته بندی ها"}
           </h4>
           <Icon name="arrow left" size={30} />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3">
           {(
             data?.links ?? [
               "منتخب مبلمان",
@@ -70,7 +70,7 @@ const CategoryDetails = ({ category }: CategoryDetailsProps) => {
             <a
               key={idx}
               href="#"
-              className="text-sm text-neutral-600 hover:text-primary"
+              className="text-sm text-neutral-600 hover:text-primary transition-colors"
             >
               {label}
             </a>
