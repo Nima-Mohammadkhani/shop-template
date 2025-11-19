@@ -33,12 +33,14 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <section className="flex flex-col w-full bg-white sticky top-0 z-50 shadow-sm">
-      <div className="hidden lg:flex justify-center items-center gap-8 w-full">
+    <section className="flex flex-col justify-center items-center w-full bg-white sticky top-0 z-40 shadow-sm">
+      <div className="hidden lg:flex justify-center items-center gap-8 w-full max-w-7xl">
+       <div>
         <ProductCategoryButton
           onClick={() => setIsOpen((prev) => !prev)}
           className={isOpen ? "text-primary" : ""}
         />
+       </div>
         <div className="h-6 w-px bg-neutral-200" />
         <HeaderItems />
       </div>
