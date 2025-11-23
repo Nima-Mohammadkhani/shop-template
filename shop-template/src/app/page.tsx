@@ -116,6 +116,7 @@ const Home = () => {
           category={category}
           popular={popular}
         />
+        <Products title={"محبوب ترین"} category={category} popular={popular} />
       </div>
     </section>
   );
