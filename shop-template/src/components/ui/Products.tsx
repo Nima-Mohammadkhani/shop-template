@@ -1,0 +1,40 @@
+import Button from "./Button";
+import Card, { ProductItem } from "./Card";
+import { categoryItem } from "./CategoryCard";
+
+interface CardProps {
+  popular: ProductItem[];
+  category: categoryItem[];
+  title: string;
+}
+
+const Products: React.FC<CardProps> = ({ popular, category, title }) => {
+  return (
+    <div className="flex flex-col justify-between gap-8">
+      <div className="flex justify-between items-center gap-4">
+        <h3 className="text-primary text-lg">{title}</h3>
+        <div className="h-px flex-1 w-full bg-neutral-200" />
+        <Button title="مشاهده همه" className="text-xs" iconLeft="" />
+      </div>
+
+      <div className="flex justify-start items-center gap-2">
+        <div className="h-10 w-px bg-primary" />
+        {category.map((item) => (
+          <Button
+            key={item.id}
+            title={item.category}
+            className="p-2 border-b-2 border-primary rounded-none"
+          />
+        ))}
+      </div>
+
+      <div className="flex justify-between">
+        {popular.map((productItem) => (
+          <Card productItem={productItem} key={productItem.id} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Products;
