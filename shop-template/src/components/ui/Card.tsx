@@ -1,6 +1,6 @@
 import { toPersianNumber } from "@/lib/utils";
 
-interface IProductItem {
+export interface ProductItem {
   id: number;
   image: string;
   name: string;
@@ -11,7 +11,7 @@ interface IProductItem {
 }
 
 interface CardProps {
-  productItem: IProductItem;
+  productItem: ProductItem;
 }
 
 const Card: React.FC<CardProps> = ({ productItem }) => {
