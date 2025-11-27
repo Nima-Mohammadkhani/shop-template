@@ -33,7 +33,7 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <section className="flex flex-col justify-center items-center w-full bg-white sticky top-0 z-40 shadow-sm">
+    <section className="flex flex-col justify-center items-center w-full sticky bg-white top-0 z-40 shadow-sm">
       <div className="hidden lg:flex justify-center items-center gap-8 w-full max-w-7xl">
        <div>
         <ProductCategoryButton
@@ -45,7 +45,8 @@ const Header = () => {
         <HeaderItems />
       </div>
 
-      <div className="flex lg:hidden justify-between items-center px-4 py-3 border-b border-neutral-200">
+      <div className="flex lg:hidden justify-between items-center w-full px-2 py-3 border-b border-neutral-200">
+       <div className="flex items-center gap-2">
         <button
           onClick={() => setIsMobileMenuOpen(true)}
           className="p-2 hover:bg-neutral-50 rounded-lg transition-colors"
@@ -53,17 +54,13 @@ const Header = () => {
         >
           <Icon name="justify" size={24} color="primary" />
         </button>
-        
         <h1 className="text-lg font-bold text-primary">فروشگاه</h1>
+       </div>
+      
         
-        <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-neutral-50 rounded-lg transition-colors">
-            <Icon name="search" size={20} />
-          </button>
-          <button className="p-2 hover:bg-neutral-50 rounded-lg transition-colors">
-            <Icon name="Shopping" size={20} />
-          </button>
-        </div>
+       <button className="p-2 hover:bg-neutral-50 rounded-lg transition-colors">
+          <Icon name="Shopping" size={20} />
+        </button>
       </div>
 
       {isOpen && (
@@ -108,7 +105,7 @@ const Header = () => {
               </div>
 
               <div className="py-4">
-                <div className="px-4 mb-3">
+                <div className="px-4">
                   <ProductCategoryButton
                     onClick={() => setIsOpen((prev) => !prev)}
                     className={`${isOpen ? "text-primary" : ""} w-full justify-start`}
@@ -133,7 +130,7 @@ const Header = () => {
                 )}
               </div>
 
-              <div className="border-t border-neutral-200 p-4 mt-auto">
+              <div className="border-t border-neutral-200 px-1 mt-auto">
                 <button className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-neutral-50 transition-colors">
                   <Icon name="person" size={20} color="primary" />
                   <span className="font-medium">ورود / ثبت نام</span>
