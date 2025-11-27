@@ -82,7 +82,7 @@ const Slider = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section className="relative h-[60vh] sm:h-[70vh] md:h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={currentSlide}
@@ -109,7 +109,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-block bg-yellow-500/90 backdrop-blur-sm text-black px-4 py-2 rounded-full text-sm font-medium mb-6"
+                  className="inline-block bg-yellow-500/90 backdrop-blur-sm text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 >
                   {slides[currentSlide].category}
                 </motion.div>
@@ -118,7 +118,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-5xl md:text-7xl font-light text-white mb-4 leading-tight"
+                  className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-light text-white mb-2 sm:mb-4 leading-tight"
                 >
                   {slides[currentSlide].title}
                 </motion.h1>
@@ -127,7 +127,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-2xl md:text-3xl font-light text-yellow-400 mb-6"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-yellow-400 mb-4 sm:mb-6"
                 >
                   {slides[currentSlide].subtitle}
                 </motion.h2>
@@ -136,7 +136,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-4 sm:mb-8 max-w-2xl leading-relaxed"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
@@ -148,12 +148,12 @@ const Slider = () => {
                 >
                   <Link
                     href={slides[currentSlide].ctaLink}
-                    className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg transition-all duration-300 font-medium text-lg group hover:scale-105 hover:shadow-2xl"
+                    className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base md:text-lg group hover:scale-105 hover:shadow-2xl"
                   >
                     {slides[currentSlide].ctaText}
                     <Icon
-                      name="ChevronLeft"
-                      className="mr-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      name="arrow left"
+                      className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                     />
                   </Link>
                 </motion.div>
@@ -165,22 +165,22 @@ const Slider = () => {
 
       <Button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 group"
-        iconRight="ChevronLeft"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 group z-10"
+        iconRight="arrow left"
       />
 
       <Button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 group"
-        iconRight="ChevronRight"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 group z-10"
+        iconRight="next"
       />
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
           <Button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
                 ? "bg-yellow-500 scale-125"
                 : "bg-white/50 hover:bg-white/75"
