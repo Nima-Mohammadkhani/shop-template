@@ -28,7 +28,7 @@ const Products: React.FC<CardProps> = ({ popular, category, title }) => {
         ))}
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex overflow-x-auto justify-between">
         {popular.map((productItem) => (
           <Card productItem={productItem} key={productItem.id} />
         ))}

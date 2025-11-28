@@ -96,8 +96,8 @@ const Home = () => {
   return (
     <section className="flex flex-col gap-16">
       <Slider />
-      <div className="flex flex-col gap-16 mx-auto w-full max-w-7xl">
-        <div className="flex justify-between">
+      <div className="flex flex-col gap-16 mx-auto w-full max-w-7xl px-4 sm:px-0">
+        <div className="flex justify-between overflow-x-auto">
           <div className="bg-primary border-2 border-b-4 border-neutral-200 rounded-2xl shadow-xl h-96 w-2xs"></div>
           {product.map((productItem) => (
             <Card productItem={productItem} key={productItem.id} />
@@ -105,7 +105,7 @@ const Home = () => {
         </div>
         <div className="flex flex-col gap-8">
           <h3 className="self-center text-xl">دسته بندی محصولات</h3>
-          <div className="flex justify-between">
+          <div className="flex flex-wrap justify-between">
             {category.map((categoryItem) => (
               <CategoryCard categoryItem={categoryItem} key={categoryItem.id} />
             ))}
