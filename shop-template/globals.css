@@ -1,47 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #DC2655;
-  --color-primary-50: #FDF2F6;
-  --color-primary-100: #FCE7EF;
-  --color-primary-200: #FBCFE0;
-  --color-primary-300: #FAA7C5;
-  --color-primary-400: #F5719E;
-  --color-primary-500: #DC2655;
-  --color-primary-600: #BF173E;
-  --color-primary-700: #9E1634;
-  --color-primary-800: #84172F;
+  --color-primary: #dc2655;
+  --color-primary-50: #fdf2f6;
+  --color-primary-100: #fce7ef;
+  --color-primary-200: #fbcfe0;
+  --color-primary-300: #faa7c5;
+  --color-primary-400: #f5719e;
+  --color-primary-500: #dc2655;
+  --color-primary-600: #bf173e;
+  --color-primary-700: #9e1634;
+  --color-primary-800: #84172f;
   --color-primary-900: #510616;
-  --color-primary-950: #292C2D;
+  --color-primary-950: #292c2d;
 
-  --color-: #3E4344;
-  --color-neutral-50: #F8F9F9;
-  --color-neutral-100: #F0F1F1;
-  --color-neutral-200: #E1E2E3;
-  --color-neutral-300: #D1D4D4;
-  --color-neutral-400: #C2C5C6;
-  --color-neutral-500: #A4A9AA;
-  --color-neutral-600: #858C8D;
-  --color-neutral-700: #676F71;
-  --color-neutral-800: #52595A;
-  --color-neutral-900: #3E4344;
-  --color-neutral-950: #292C2D;
+  --color-: #3e4344;
+  --color-neutral-50: #f8f9f9;
+  --color-neutral-100: #f0f1f1;
+  --color-neutral-200: #e1e2e3;
+  --color-neutral-300: #d1d4d4;
+  --color-neutral-400: #c2c5c6;
+  --color-neutral-500: #a4a9aa;
+  --color-neutral-600: #858c8d;
+  --color-neutral-700: #676f71;
+  --color-neutral-800: #52595a;
+  --color-neutral-900: #3e4344;
+  --color-neutral-950: #292c2d;
   --color-neutral-1000: #151617;
 
-  --color-success: #00A478;
-  --color-success-300: #00BA88;
-  --color-success-500: #00A478;
+  --color-success: #00a478;
+  --color-success-300: #00ba88;
+  --color-success-500: #00a478;
   --color-success-700: #008364;
 
-  --color-warning: #F3A62C;
-  --color-warning-300: #F4B740;
-  --color-warning-500: #F3A62C;
-  --color-warning-700: #EC8514;
+  --color-warning: #f3a62c;
+  --color-warning-300: #f4b740;
+  --color-warning-500: #f3a62c;
+  --color-warning-700: #ec8514;
 
-  --color-error: #ED2E2E;
-  --color-error-300: #F87171;
-  --color-error-500: #ED2E2E;
-  --color-error-700: #DC2626;
+  --color-error: #ed2e2e;
+  --color-error-300: #f87171;
+  --color-error-500: #ed2e2e;
+  --color-error-700: #dc2626;
 }
 
 @font-face {
@@ -70,10 +70,11 @@ html {
 }
 
 @media (max-width: 1024px) {
-  button, a {
+  button,
+  a {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   button {
     -webkit-user-select: none;
     user-select: none;
@@ -83,4 +84,13 @@ html {
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

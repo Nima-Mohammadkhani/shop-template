@@ -23,12 +23,12 @@ const Products: React.FC<CardProps> = ({ popular, category, title }) => {
           <Button
             key={item.id}
             title={item.category}
-            className="p-2 border-b-2 border-primary rounded-none"
+            className="p-2 border-b-2 border-primary rounded-none text-xs sm:text-base"
           />
         ))}
       </div>
 
-      <div className="flex overflow-x-auto justify-between">
+      <div className="flex overflow-x-auto scroll-container justify-between gap-4 sm:gap-0">
         {popular.map((productItem) => (
           <Card productItem={productItem} key={productItem.id} />
         ))}
