@@ -14,16 +14,17 @@ export interface ProductItem {
 
 interface CardProps {
   productItem: ProductItem;
+  type?: string;
 }
 
-const Card: React.FC<CardProps> = ({ productItem }) => {
+const Card: React.FC<CardProps> = ({ productItem, type }) => {
   const discount = (productItem.price * productItem.off) / 100;
   const finalPrice = productItem.price - discount;
   return (
     <article className="flex flex-col justify-around p-4 bg-white border-2 border-b-4 border-neutral-200 rounded-2xl shadow-xl size-56 sm:h-96 sm:w-2xs">
       <div className="relative h-1/2 w-full">
-        <Image 
-          src={productItem.image} 
+        <Image
+          src={productItem.image}
           alt={`تصویر محصول ${productItem.name} مدل ${productItem.model}`}
           fill
           className="object-cover"
@@ -42,7 +43,7 @@ const Card: React.FC<CardProps> = ({ productItem }) => {
           </div>
           <div className="flex items-center gap-1 text-xs sm:text-sm">
             <h4>{toPersianNumber(productItem.star)}</h4>
-            <Icon name="vector" color="warning-500"/>
+            <Icon name="vector" color="warning-500" />
           </div>
         </div>
         <div className="flex flex-col gap-2 text-xs sm:text-sm">

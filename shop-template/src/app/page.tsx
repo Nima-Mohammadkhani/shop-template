@@ -103,9 +103,17 @@ const Home = () => {
             <Card productItem={productItem} key={productItem.id} />
           ))}
         </div>
-        <section className="flex flex-col gap-8" aria-labelledby="categories-heading">
-          <h2 id="categories-heading" className="self-center text-xl">دسته بندی محصولات</h2>
-          <div className="grid grid-cols-2 gap-6 mx-auto sm:flex flex-wrap justify-between" role="list">
+        <section
+          className="flex flex-col gap-8"
+          aria-labelledby="categories-heading"
+        >
+          <h2 id="categories-heading" className="self-center text-xl">
+            دسته بندی محصولات
+          </h2>
+          <div
+            className="grid grid-cols-2 gap-6 mx-auto sm:flex flex-wrap justify-between w-full"
+            role="list"
+          >
             {category.map((categoryItem) => (
               <div key={categoryItem.id} role="listitem">
                 <CategoryCard categoryItem={categoryItem} />
@@ -119,6 +127,12 @@ const Home = () => {
           popular={popular}
         />
         <Products title={"محبوب ترین"} category={category} popular={popular} />
+        <Products
+          title={"محبوب ترین"}
+          category={category}
+          popular={popular}
+          type="blog"
+        />
       </div>
     </>
   );
