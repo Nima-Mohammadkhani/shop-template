@@ -46,7 +46,7 @@
 
 @font-face {
   font-family: "Vazir";
-  src: url("/fonts/Vazir-Medium.woff") format("woff");
+  src: url("/font/Vazir-Medium.woff") format("woff");
 }
 
 html {
