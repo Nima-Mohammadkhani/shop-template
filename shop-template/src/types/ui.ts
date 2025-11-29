@@ -15,6 +15,9 @@ export interface ButtonProps {
   iconColorRight?: string;
   fullWidth?: boolean;
   type?: "button" | "submit" | "reset";
+  "aria-label"?: string;
+  "aria-expanded"?: boolean;
+  "aria-current"?: "true" | "false" | "page" | "step" | "location" | "date" | "time";
 }
 
 export interface IconProps {

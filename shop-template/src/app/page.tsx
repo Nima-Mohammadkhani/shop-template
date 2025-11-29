@@ -94,23 +94,25 @@ const Home = () => {
     },
   ];
   return (
-    <section className="flex flex-col gap-16">
+    <>
       <Slider />
       <div className="flex flex-col gap-16 mx-auto w-full max-w-7xl px-4 sm:px-0">
-        <div className="flex justify-between overflow-x-auto scroll-container gap-4">
+        <div className="flex justify-between overflow-x-auto scroll-container gap-4 mt-10">
           <div className="bg-primary border-2 border-b-4 border-neutral-200 rounded-2xl shadow-xl shrink-0 h-56 w-48 sm:h-96 sm:w-2xs"></div>
           {product.map((productItem) => (
             <Card productItem={productItem} key={productItem.id} />
           ))}
         </div>
-        <div className="flex flex-col gap-8">
-          <h3 className="self-center text-xl">دسته بندی محصولات</h3>
-          <div className="grid grid-cols-2 gap-6 mx-auto sm:flex flex-wrap justify-between">
+        <section className="flex flex-col gap-8" aria-labelledby="categories-heading">
+          <h2 id="categories-heading" className="self-center text-xl">دسته بندی محصولات</h2>
+          <div className="grid grid-cols-2 gap-6 mx-auto sm:flex flex-wrap justify-between" role="list">
             {category.map((categoryItem) => (
-              <CategoryCard categoryItem={categoryItem} key={categoryItem.id} />
+              <div key={categoryItem.id} role="listitem">
+                <CategoryCard categoryItem={categoryItem} />
+              </div>
             ))}
           </div>
-        </div>
+        </section>
         <Products
           title={"پرفروش ترین محصولات"}
           category={category}
@@ -118,7 +120,7 @@ const Home = () => {
         />
         <Products title={"محبوب ترین"} category={category} popular={popular} />
       </div>
-    </section>
+    </>
   );
 };
 export default Home;

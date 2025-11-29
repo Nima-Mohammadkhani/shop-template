@@ -33,15 +33,17 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <section className="flex flex-col justify-center items-center w-full sticky bg-white top-0 z-40 shadow-sm">
+    <nav className="flex flex-col justify-center items-center w-full sticky bg-white top-0 z-40 shadow-sm" aria-label="منوی اصلی">
       <div className="hidden lg:flex justify-center items-center gap-8 w-full max-w-7xl">
        <div>
         <ProductCategoryButton
           onClick={() => setIsOpen((prev) => !prev)}
           className={isOpen ? "text-primary" : ""}
+          aria-label={isOpen ? "بستن دسته‌بندی محصولات" : "باز کردن دسته‌بندی محصولات"}
+          aria-expanded={isOpen}
         />
        </div>
-        <div className="h-6 w-px bg-neutral-200" />
+        <div className="h-6 w-px bg-neutral-200" aria-hidden="true" />
         <HeaderItems />
       </div>
 
@@ -140,7 +142,7 @@ const Header = () => {
           </div>
         </>
       )}
-    </section>
+    </nav>
   );
 };
 export default Header;

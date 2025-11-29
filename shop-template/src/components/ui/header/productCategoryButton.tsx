@@ -5,11 +5,15 @@ import Button from "../Button";
 type ProductCategoryButtonProps = {
   onClick?: () => void;
   className?: string;
+  "aria-label"?: string;
+  "aria-expanded"?: boolean;
 };
 
 const ProductCategoryButton = ({
   onClick,
   className,
+  "aria-label": ariaLabel,
+  "aria-expanded": ariaExpanded,
 }: ProductCategoryButtonProps) => {
   return (
     <Button
@@ -18,6 +22,8 @@ const ProductCategoryButton = ({
       onClick={onClick}
       className={`font-medium text-primary ${className ?? ""}`}
       iconColorRight="primary"
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
     />
   );
 };

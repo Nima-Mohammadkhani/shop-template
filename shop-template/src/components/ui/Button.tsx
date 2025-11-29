@@ -21,6 +21,9 @@ const Button: React.FC<ButtonProps> = ({
   iconColorRight,
   fullWidth = false,
   type = "button",
+  "aria-label": ariaLabel,
+  "aria-expanded": ariaExpanded,
+  "aria-current": ariaCurrent,
 }) => {
   const baseClasses =
     "inline-flex items-center justify-center rounded-lg transition-all duration-150 overflow-hidden gap-2";
@@ -89,7 +92,13 @@ const Button: React.FC<ButtonProps> = ({
 
   if (link && !disabled) {
     return (
-      <Link href={link} onClick={onClick} className={buttonClasses}>
+      <Link 
+        href={link} 
+        onClick={onClick} 
+        className={buttonClasses}
+        aria-label={ariaLabel}
+        aria-current={ariaCurrent}
+      >
         {content}
       </Link>
     );
@@ -101,6 +110,9 @@ const Button: React.FC<ButtonProps> = ({
       onClick={!disabled && !loading ? onClick : undefined}
       disabled={disabled || loading}
       className={buttonClasses}
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
+      aria-current={ariaCurrent}
     >
       {content}
     </button>

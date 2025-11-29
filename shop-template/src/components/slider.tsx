@@ -5,6 +5,7 @@ import Icon from "./ui/Icon";
 import { ISlide } from "../types/ui";
 import Button from "./ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 const slides: ISlide[] = [
   {
@@ -94,10 +95,13 @@ const Slider = () => {
           className="absolute inset-0"
         >
           <div className="absolute inset-0">
-            <img
+            <Image
               src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              className="w-full h-full object-cover"
+              alt={`${slides[currentSlide].title} - ${slides[currentSlide].subtitle}`}
+              fill
+              className="object-cover"
+              priority={currentSlide === 0}
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
           </div>
@@ -109,7 +113,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-block bg-yellow-500/90 backdrop-blur-sm text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+                  className="inline-block bg-primary/90 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 >
                   {slides[currentSlide].category}
                 </motion.div>
@@ -127,7 +131,7 @@ const Slider = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-yellow-400 mb-4 sm:mb-6"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-primary mb-4 sm:mb-6"
                 >
                   {slides[currentSlide].subtitle}
                 </motion.h2>
@@ -148,13 +152,9 @@ const Slider = () => {
                 >
                   <Link
                     href={slides[currentSlide].ctaLink}
-                    className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base md:text-lg group hover:scale-105 hover:shadow-2xl"
+                    className="inline-flex items-center bg-primary hover:bg-yellow-600 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg transition-all duration-300 font-medium text-sm sm:text-base md:text-lg group hover:scale-105 hover:shadow-2xl"
                   >
                     {slides[currentSlide].ctaText}
-                    <Icon
-                      name="arrow left"
-                      className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
-                    />
                   </Link>
                 </motion.div>
               </div>
@@ -167,12 +167,14 @@ const Slider = () => {
         onClick={prevSlide}
         className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 group z-10"
         iconRight="arrow left"
+        aria-label="اسلاید قبلی"
       />
 
       <Button
         onClick={nextSlide}
         className="absolute rotate-180 right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white p-2 sm:p-3 rounded-full transition-all duration-300 hover:scale-110 group z-10"
         iconRight="arrow left"
+        aria-label="اسلاید بعدی"
       />
 
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
@@ -182,16 +184,18 @@ const Slider = () => {
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-yellow-500 scale-125"
+                ? "bg-primary scale-125"
                 : "bg-white/50 hover:bg-white/75"
             }`}
+            aria-label={`رفتن به اسلاید ${index + 1}`}
+            aria-current={index === currentSlide ? "true" : undefined}
           />
         ))}
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
         <motion.div
-          className="h-full bg-yellow-500"
+          className="h-full bg-primary"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 5, ease: "linear" }}

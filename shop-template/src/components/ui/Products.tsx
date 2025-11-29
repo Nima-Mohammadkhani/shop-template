@@ -17,22 +17,29 @@ const Products: React.FC<CardProps> = ({ popular, category, title }) => {
         <Button title="مشاهده همه" className="text-xs" iconLeft="" />
       </div>
 
-      <div className="flex justify-start items-center gap-2">
-        <div className="h-10 w-px bg-primary" />
-        {category.map((item) => (
-          <Button
-            key={item.id}
-            title={item.category}
-            className="p-2 border-b-2 border-primary rounded-none text-xs sm:text-base"
-          />
-        ))}
-      </div>
+      <nav aria-label={`فیلتر دسته‌بندی برای ${title}`}>
+        <div className="flex justify-start items-center gap-2">
+          <div className="h-10 w-px bg-primary" aria-hidden="true" />
+          {category.map((item) => (
+            <Button
+              key={item.id}
+              title={item.category}
+              className="p-2 border-b-2 border-primary rounded-none text-xs sm:text-base"
+              aria-label={`فیلتر بر اساس ${item.category}`}
+            />
+          ))}
+        </div>
+      </nav>
 
-      <div className="flex overflow-x-auto scroll-container justify-between gap-4 sm:gap-0">
-        {popular.map((productItem) => (
-          <Card productItem={productItem} key={productItem.id} />
-        ))}
-      </div>
+      <section aria-label={title}>
+        <div className="flex overflow-x-auto scroll-container justify-between gap-4 sm:gap-0" role="list">
+          {popular.map((productItem) => (
+            <div key={productItem.id} role="listitem">
+              <Card productItem={productItem} />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

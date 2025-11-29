@@ -1,5 +1,6 @@
 import { toPersianNumber } from "@/lib/utils";
 import Icon from "./Icon";
+import Image from "next/image";
 
 export interface ProductItem {
   id: number;
@@ -19,8 +20,16 @@ const Card: React.FC<CardProps> = ({ productItem }) => {
   const discount = (productItem.price * productItem.off) / 100;
   const finalPrice = productItem.price - discount;
   return (
-    <section className="flex flex-col justify-around p-4 bg-white border-2 border-b-4 border-neutral-200 rounded-2xl shadow-xl size-56 sm:h-96 sm:w-2xs">
-      <img src={productItem.image} alt="" className="h-1/2 object-cover" />
+    <article className="flex flex-col justify-around p-4 bg-white border-2 border-b-4 border-neutral-200 rounded-2xl shadow-xl size-56 sm:h-96 sm:w-2xs">
+      <div className="relative h-1/2 w-full">
+        <Image 
+          src={productItem.image} 
+          alt={`تصویر محصول ${productItem.name} مدل ${productItem.model}`}
+          fill
+          className="object-cover"
+          loading="lazy"
+        />
+      </div>
       <div className="flex flex-col flex-1 justify-between sm:pt-4">
         <div className="flex justify-between items-center gap-4 sm-gap-0">
           <div className="flex flex-col flex-1 gap-1">
@@ -48,7 +57,7 @@ const Card: React.FC<CardProps> = ({ productItem }) => {
           </div>
         </div>
       </div>
-    </section>
+    </article>
   );
 };
 export default Card;
