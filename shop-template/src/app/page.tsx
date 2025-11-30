@@ -93,6 +93,36 @@ const Home = () => {
       off: 30,
     },
   ];
+  const blog = [
+    {
+      id: 1,
+      image: "/image/blog/1.png",
+      title: "چه رنگهایی در اتاق خواب کاربرد دارد؟",
+      date: "9 آذر 1404",
+      subtitlte: "میزان نور طبیعی و تأثیری که رنگ‌ها بر روحیه دارند دارد",
+    },
+    {
+      id: 2,
+      image: "/image/blog/2.png",
+      title: "چه رنگهایی در اتاق خواب کاربرد دارد؟",
+      date: "9 آذر 1404",
+      subtitlte: "میزان نور طبیعی و تأثیری که رنگ‌ها بر روحیه دارند دارد",
+    },
+    {
+      id: 3,
+      image: "/image/blog/3.png",
+      title: "چه رنگهایی در اتاق خواب کاربرد دارد؟",
+      date: "9 آذر 1404",
+      subtitlte: "میزان نور طبیعی و تأثیری که رنگ‌ها بر روحیه دارند دارد",
+    },
+    {
+      id: 4,
+      image: "/image/blog/4.png",
+      title: "چه رنگهایی در اتاق خواب کاربرد دارد؟",
+      date: "9 آذر 1404",
+      subtitlte: "میزان نور طبیعی و تأثیری که رنگ‌ها بر روحیه دارند دارد",
+    },
+  ];
   return (
     <>
       <Slider />
@@ -124,13 +154,13 @@ const Home = () => {
         <Products
           title={"پرفروش ترین محصولات"}
           category={category}
-          popular={popular}
+          data={popular}
         />
-        <Products title={"محبوب ترین"} category={category} popular={popular} />
+        <Products title={"محبوب ترین"} category={category} data={popular} />
         <Products
-          title={"محبوب ترین"}
+          title={"خواندنی ها"}
           category={category}
-          popular={popular}
+          data={blog}
           type="blog"
         />
       </div>

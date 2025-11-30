@@ -1,15 +1,15 @@
 import Button from "./Button";
-import Card, { ProductItem } from "./Card";
+import Card, { BlogItem, ProductItem } from "./Card";
 import { categoryItem } from "./CategoryCard";
 
-interface CardProps {
-  popular: ProductItem[];
+interface Productsprops {
+  data: ProductItem[] | BlogItem[];
   category: categoryItem[];
   title: string;
   type?: string;
 }
 
-const Products: React.FC<CardProps> = ({ popular, category, title, type }) => {
+const Products: React.FC<Productsprops> = ({ data, category, title, type }) => {
   return (
     <div className="flex flex-col justify-between gap-8">
       <div className="flex justify-between items-center gap-4">
@@ -18,7 +18,7 @@ const Products: React.FC<CardProps> = ({ popular, category, title, type }) => {
         <Button title="مشاهده همه" className="text-xs" iconLeft="" />
       </div>
 
-      {type && (
+      {type !== "blog" && (
         <nav aria-label={`فیلتر دسته‌بندی برای ${title}`}>
           <div className="flex justify-start items-center gap-2">
             <div className="h-10 w-px bg-primary" aria-hidden="true" />
@@ -39,9 +39,13 @@ const Products: React.FC<CardProps> = ({ popular, category, title, type }) => {
           className="flex overflow-x-auto scroll-container justify-between gap-4 sm:gap-0"
           role="list"
         >
-          {popular.map((productItem) => (
-            <div key={productItem.id} role="listitem">
-              <Card productItem={productItem} type="blog" />
+          {data.map((item) => (
+            <div key={item.id} role="listitem">
+              {type === "blog" ? (
+                <Card blogItem={item as BlogItem} type={type} />
+              ) : (
+                <Card productItem={item as ProductItem} type={type} />
+              )}
             </div>
           ))}
         </div>
