@@ -1,6 +1,6 @@
-import Button from "./Button";
-import Card, { BlogItem, ProductItem } from "./Card";
-import { categoryItem } from "./CategoryCard";
+import Button from "./ui/Button";
+import Card, { BlogItem, ProductItem } from "./ui/Card";
+import { categoryItem } from "./ui/CategoryCard";
 
 interface Productsprops {
   data: ProductItem[] | BlogItem[];

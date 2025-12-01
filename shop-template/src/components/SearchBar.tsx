@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Input from "./Input";
-import Icon from "./Icon";
+import Input from "./ui/Input";
+import Icon from "./ui/Icon";
 import Image from "next/image";
 
 const SearchBar = () => {

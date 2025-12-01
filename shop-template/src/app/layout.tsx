@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../../globals.css";
 import Baner from "@/components/ui/Baner";
-import SearchBar from "@/components/ui/SearchBar";
+import SearchBar from "@/components/SearchBar";
 import Header from "@/components/ui/header";
 
 export const metadata: Metadata = {

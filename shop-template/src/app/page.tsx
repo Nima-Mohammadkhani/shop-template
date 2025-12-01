@@ -1,8 +1,7 @@
 import Slider from "@/components/slider";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import CategoryCard from "@/components/ui/CategoryCard";
-import Products from "@/components/ui/Products";
+import Products from "@/components/Products";
 import Image from "next/image";
 const Home = () => {
   const product = [
