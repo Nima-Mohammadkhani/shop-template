@@ -196,6 +196,7 @@ const Home = () => {
           data={blog}
           type="blog"
         />
+        <div/>
       </div>
     </>
   );

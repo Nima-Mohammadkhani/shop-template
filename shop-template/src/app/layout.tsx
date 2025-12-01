@@ -3,6 +3,7 @@ import "../../globals.css";
 import Baner from "@/components/ui/Baner";
 import SearchBar from "@/components/SearchBar";
 import Header from "@/components/ui/header";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -113,6 +114,9 @@ export default function RootLayout({
           <Header />
         </header>
         <main id="main-content">{children}</main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );
