@@ -1,8 +1,9 @@
 import Slider from "@/components/slider";
+import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import CategoryCard from "@/components/ui/CategoryCard";
 import Products from "@/components/ui/Products";
-
+import Image from "next/image";
 const Home = () => {
   const product = [
     {
@@ -151,12 +152,45 @@ const Home = () => {
             ))}
           </div>
         </section>
+        <div className="-m-4 sm:m-0">
+          <Image
+            src={"/image/banner/banner.png"}
+            width={1224}
+            height={252}
+            alt="کاملترین کالکشن ابزار آشپزخانه"
+            className="mx-auto"
+          />
+        </div>
         <Products
           title={"پرفروش ترین محصولات"}
           category={category}
           data={popular}
         />
+        <div className="flex flex-wrap justify-between gap-4">
+          <Image
+            src={"/image/banner/banner2.png"}
+            width={600}
+            height={346}
+            alt="خریــــد اعتباری!"
+          />
+          <Image
+            src={"/image/banner/banner3.png"}
+            width={600}
+            height={346}
+            alt="خریــــد اعتباری!"
+          />
+        </div>
         <Products title={"محبوب ترین"} category={category} data={popular} />
+        <div className="-m-4 sm:m-0">
+          <Image
+            src={"/image/banner/banner4.png"}
+            width={1224}
+            height={252}
+            alt="کاملترین کالکشن وسایل چوبی"
+            className="w-full"
+          />
+        </div>
+
         <Products
           title={"خواندنی ها"}
           category={category}
